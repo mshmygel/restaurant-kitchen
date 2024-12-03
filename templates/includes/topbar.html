@@ -11,18 +11,18 @@
           <a class="nav-link" href="{% url 'kitchen:home' %}">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dishTypesDropdown" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:dish_type-list' %}" id="dishTypesDropdown" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
             Dish Types
           </a>
           <ul class="dropdown-menu" aria-labelledby="dishTypesDropdown">
             {% for dish_type in dish_types %}
-              <li><a class="dropdown-item" href="#">{{ dish_type.name }}</a></li>
+              <li><a class="dropdown-item" href="{% url 'kitchen:dish_type-list' %}">{{ dish_type.name }}</a></li>
             {% endfor %}
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dishesDropdown" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:dish-list' %}" id="dishesDropdown" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
             Dishes
           </a>
@@ -33,7 +33,7 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="cooksDropdown" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:cook-list' %}" id="cooksDropdown" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
             Cooks
           </a>
@@ -48,7 +48,7 @@
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link">User: {{ user.username }}</a>
+            <a class="nav-link" href="{% url 'kitchen:cook-detail' pk=user.pk %}">User: {{ user.get_username }}</a>
           </li>
           <li class="nav-item">
             <form action="{% url 'accounts:logout' %}" method="post" style="display: inline;">
