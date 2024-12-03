@@ -106,8 +106,16 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     #     return queryset
 
 
+# class DishDetailView(LoginRequiredMixin, generic.DetailView):
+#     model = Dish
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        dish = self.get_object()
+        context['is_assigned'] = dish.cooks.filter(pk=self.request.user.pk).exists()
+        return context
 
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
@@ -174,9 +182,10 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 from django.shortcuts import get_object_or_404
 
 
+@login_required
 def toggle_assign_to_dish(request, pk):
-    cook = Cook.objects.get(id=request.user.id)
-    dish = get_object_or_404(Dish, id=pk)
+    cook = get_object_or_404(Cook, pk=request.user.pk)
+    dish = get_object_or_404(Dish, pk=pk)
 
     if dish in cook.dishes.all():
         cook.dishes.remove(dish)
