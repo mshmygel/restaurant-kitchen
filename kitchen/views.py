@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
+
 
 from kitchen.forms import (
     DishTypeSearchForm,
@@ -58,23 +58,27 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
+    template_name = "kitchen/dish_type_form.html"
     fields = "__all__"
     success_url = reverse_lazy("kitchen:dish_type-list")
 
 
 class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DishType
+    template_name = "kitchen/dish_type_form.html"
     fields = "__all__"
     success_url = reverse_lazy("kitchen:dish_type-list")
 
 
 class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    template_name = "kitchen/dish_type_confirm_delete.html"
     model = DishType
     success_url = reverse_lazy("kitchen:dish_type-list")
 
 
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
+    template_name = "kitchen/dish_list.html"
     paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -85,13 +89,21 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         )
         return context
 
-
     def get_queryset(self):
         queryset = Dish.objects.select_related("dish_type")
         form = DishSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(model__icontains=form.cleaned_data["name"])
+            name = form.cleaned_data.get("name")
+            if name:
+                return queryset.filter(name__icontains=name)
         return queryset
+
+    # def get_queryset(self):
+    #     queryset = Dish.objects.select_related("dish_type")
+    #     form = DishSearchForm(self.request.GET)
+    #     if form.is_valid():
+    #         return queryset.filter(name__icontains=form.cleaned_data["name"])
+    #     return queryset
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
@@ -138,12 +150,14 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
+    # template_name =
     queryset = Cook.objects.all().prefetch_related("dishes__dish_type")
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
     form_class = CookCreationForm
+    success_url = reverse_lazy("kitchen:cook-list")
 
 
 class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -157,13 +171,28 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("")
 
 
-@login_required
+from django.shortcuts import get_object_or_404
+
+
 def toggle_assign_to_dish(request, pk):
-    driver = Cook.objects.get(id=request.user.id)
-    if (
-        Dish.objects.get(id=pk) in driver.dishes.all()
-    ):
-        driver.dishes.remove(pk)
+    cook = Cook.objects.get(id=request.user.id)
+    dish = get_object_or_404(Dish, id=pk)
+
+    if dish in cook.dishes.all():
+        cook.dishes.remove(dish)
     else:
-        driver.dishes.add(pk)
-    return HttpResponseRedirect(reverse_lazy("kitchen:dish-detail", args=[pk]))
+        cook.dishes.add(dish)
+
+    return redirect('kitchen:dish-detail', pk=pk)
+
+# @login_required
+# def toggle_assign_to_dish(request, pk):
+#     dish = get_object_or_404(Dish, id=pk)
+#
+#     if request.user not in dish.cooks.all():
+#         dish.cooks.add(request.user)
+#     else:
+#         dish.cooks.remove(request.user)
+#
+#     return redirect("kitchen:dish-detail", pk=pk)
+
