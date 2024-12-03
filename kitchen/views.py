@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
+from django.shortcuts import get_object_or_404
 
 
 from kitchen.forms import (
@@ -98,16 +99,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
                 return queryset.filter(name__icontains=name)
         return queryset
 
-    # def get_queryset(self):
-    #     queryset = Dish.objects.select_related("dish_type")
-    #     form = DishSearchForm(self.request.GET)
-    #     if form.is_valid():
-    #         return queryset.filter(name__icontains=form.cleaned_data["name"])
-    #     return queryset
 
-
-# class DishDetailView(LoginRequiredMixin, generic.DetailView):
-#     model = Dish
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
@@ -137,6 +129,7 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
+    template_name = "kitchen/cook_list.html"
     paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -158,50 +151,38 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    # template_name =
+    template_name = "kitchen/cook_detail.html"
     queryset = Cook.objects.all().prefetch_related("dishes__dish_type")
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
+    template_name = "kitchen/cook_form.html"
     form_class = CookCreationForm
     success_url = reverse_lazy("kitchen:cook-list")
 
 
 class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
+    template_name = "kitchen/cook_form.html"
     form_class = CookExperienceUpdateForm
     success_url = reverse_lazy("kitchen:cook-list")
 
 
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
+    template_name = "kitchen/cook_form.html"
     success_url = reverse_lazy("")
-
-
-from django.shortcuts import get_object_or_404
 
 
 @login_required
 def toggle_assign_to_dish(request, pk):
-    cook = get_object_or_404(Cook, pk=request.user.pk)
-    dish = get_object_or_404(Dish, pk=pk)
+    dish = get_object_or_404(Dish, id=pk)
 
-    if dish in cook.dishes.all():
-        cook.dishes.remove(dish)
+    if request.user not in dish.cooks.all():
+        dish.cooks.add(request.user)
     else:
-        cook.dishes.add(dish)
+        dish.cooks.remove(request.user)
 
-    return redirect('kitchen:dish-detail', pk=pk)
-
-# @login_required
-# def toggle_assign_to_dish(request, pk):
-#     dish = get_object_or_404(Dish, id=pk)
-#
-#     if request.user not in dish.cooks.all():
-#         dish.cooks.add(request.user)
-#     else:
-#         dish.cooks.remove(request.user)
-#
-#     return redirect("kitchen:dish-detail", pk=pk)
+    return redirect("kitchen:dish-detail", pk=pk)
 
