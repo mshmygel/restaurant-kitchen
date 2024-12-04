@@ -1,18 +1,131 @@
 {% extends "base.html" %}
 
+{#{% block content %}#}
+{#    <h1>Restaurant Kitchen</h1>#}
+{#    <p>Welcome to Best Kitchen Ever!</p>#}
+{#    <h2>Dynamic content</h2>#}
+{#    <p>The Restaurant Kitchen has the following record counts:</p>#}
+{#    <ul>#}
+{#        <li><strong>Cooks:</strong> {{ num_cooks }}</li>#}
+{#        <li><strong>Dishes:</strong> {{ num_dishes }}</li>#}
+{#        <li><strong>Dish Types:</strong> {{ num_dish_types }}</li>#}
+{#    </ul>#}
+{##}
+{#    <p>You have visited this page#}
+{#        {{ num_visits }} time{{ num_visits|pluralize }}.#}
+{#    </p>#}
+{##}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#  <div class="container mt-5">#}
+{#    <div class="jumbotron text-center bg-light p-5 mb-5 rounded">#}
+{#      <h1 class="display-4"><i class="fas fa-utensils"></i> Restaurant Kitchen</h1>#}
+{#      <p class="lead">Welcome to the Best Kitchen Ever!</p>#}
+{#    </div>#}
+{##}
+{#    <div class="row">#}
+{#      <div class="col-md-4">#}
+{#        <div class="card text-center">#}
+{#          <div class="card-body">#}
+{#            <h3><i class="fas fa-user-tie"></i> Cooks</h3>#}
+{#            <p>{{ num_cooks }} Available Cooks</p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="col-md-4">#}
+{#        <div class="card text-center">#}
+{#          <div class="card-body">#}
+{#            <h3><i class="fas fa-pizza-slice"></i> Dishes</h3>#}
+{#            <p>{{ num_dishes }} Dishes Available</p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="col-md-4">#}
+{#        <div class="card text-center">#}
+{#          <div class="card-body">#}
+{#            <h3><i class="fas fa-list"></i> Dish Types</h3>#}
+{#            <p>{{ num_dish_types }} Types of Dishes</p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <p class="mt-4 text-center">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>#}
+{#  </div>#}
+{#{% endblock %}#}
+
+
+
+{% block title %}Welcome to Restaurant Kitchen{% endblock %}
+
 {% block content %}
-    <h1>Restaurant Kitchen</h1>
-    <p>Welcome to Best Kitchen Ever!</p>
-    <h2>Dynamic content</h2>
-    <p>The Restaurant Kitchen has the following record counts:</p>
-    <ul>
-        <li><strong>Cooks:</strong> {{ num_cooks }}</li>
-        <li><strong>Dishes:</strong> {{ num_dishes }}</li>
-        <li><strong>Dish Types:</strong> {{ num_dish_types }}</li>
-    </ul>
+  <h1 class="mb-4">Welcome to Restaurant Kitchen</h1>
 
-    <p>You have visited this page
-        {{ num_visits }} time{{ num_visits|pluralize }}.
-    </p>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/random/800x600?dish" class="card-img-top" alt="Featured Dish">
+        <div class="card-body">
+          <h5 class="card-title">Featured Dish</h5>
+          <p class="card-text">Discover our chef's special creation of the day.</p>
+          <a href="{% url 'kitchen:dish_type-list' %}" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/random/800x600?chef" class="card-img-top" alt="Our Chefs">
+        <div class="card-body">
+          <h5 class="card-title">Meet Our Chefs</h5>
+          <p class="card-text">Get to know the talented individuals behind our delicious meals.</p>
+          <a href="{% url 'kitchen:cook-list' %}" class="btn btn-primary">View Chefs</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/random/800x600?menu" class="card-img-top" alt="Our Menu">
+        <div class="card-body">
+          <h5 class="card-title">Explore Our Menu</h5>
+          <p class="card-text">Browse through our wide selection of mouthwatering dishes.</p>
+          <a href="{% url 'kitchen:dish-list' %}" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="row mt-4">
+    <div class="col-12">
+      <h2 class="mb-3">Latest Updates</h2>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>2023-06-01</td>
+          <td>New Menu Items</td>
+          <td>We've added 5 new exciting dishes to our menu!</td>
+        </tr>
+        <tr>
+          <td>2023-05-15</td>
+          <td>Chef of the Month</td>
+          <td>Congratulations to Chef Maria for being our Chef of the Month!</td>
+        </tr>
+        <tr>
+          <td>2023-05-01</td>
+          <td>Kitchen Renovation</td>
+          <td>Our kitchen has been upgraded with state-of-the-art equipment.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 {% endblock %}
+
+
+
