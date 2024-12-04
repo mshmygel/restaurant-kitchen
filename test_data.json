@@ -1,0 +1,272 @@
+[
+    {
+        "model": "accounts.cook",
+        "pk": 1,
+        "fields": {
+            "username": "cook_1",
+            "first_name": "Cook",
+            "last_name": "One",
+            "email": "cook1@kitchen.com",
+            "years_of_experience": 5
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 2,
+        "fields": {
+            "username": "cook_2",
+            "first_name": "Cook",
+            "last_name": "Two",
+            "email": "cook2@kitchen.com",
+            "years_of_experience": 8
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 3,
+        "fields": {
+            "username": "cook_3",
+            "first_name": "Cook",
+            "last_name": "Three",
+            "email": "cook3@kitchen.com",
+            "years_of_experience": 3
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 4,
+        "fields": {
+            "username": "cook_4",
+            "first_name": "Cook",
+            "last_name": "Four",
+            "email": "cook4@kitchen.com",
+            "years_of_experience": 12
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 5,
+        "fields": {
+            "username": "cook_5",
+            "first_name": "Cook",
+            "last_name": "Five",
+            "email": "cook5@kitchen.com",
+            "years_of_experience": 10
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 6,
+        "fields": {
+            "username": "cook_6",
+            "first_name": "Cook",
+            "last_name": "Six",
+            "email": "cook6@kitchen.com",
+            "years_of_experience": 7
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 7,
+        "fields": {
+            "username": "cook_7",
+            "first_name": "Cook",
+            "last_name": "Seven",
+            "email": "cook7@kitchen.com",
+            "years_of_experience": 4
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 8,
+        "fields": {
+            "username": "cook_8",
+            "first_name": "Cook",
+            "last_name": "Eight",
+            "email": "cook8@kitchen.com",
+            "years_of_experience": 15
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 9,
+        "fields": {
+            "username": "cook_9",
+            "first_name": "Cook",
+            "last_name": "Nine",
+            "email": "cook9@kitchen.com",
+            "years_of_experience": 11
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 10,
+        "fields": {
+            "username": "cook_10",
+            "first_name": "Cook",
+            "last_name": "Ten",
+            "email": "cook10@kitchen.com",
+            "years_of_experience": 9
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 11,
+        "fields": {
+            "username": "cook_11",
+            "first_name": "Cook",
+            "last_name": "Eleven",
+            "email": "cook11@kitchen.com",
+            "years_of_experience": 6
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 12,
+        "fields": {
+            "username": "cook_12",
+            "first_name": "Cook",
+            "last_name": "Twelve",
+            "email": "cook12@kitchen.com",
+            "years_of_experience": 8
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 13,
+        "fields": {
+            "username": "cook_13",
+            "first_name": "Cook",
+            "last_name": "Thirteen",
+            "email": "cook13@kitchen.com",
+            "years_of_experience": 14
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 1,
+        "fields": {
+            "name": "Appetizer"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 2,
+        "fields": {
+            "name": "Main Course"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 3,
+        "fields": {
+            "name": "Dessert"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 4,
+        "fields": {
+            "name": "Salad"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 5,
+        "fields": {
+            "name": "Soup"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 6,
+        "fields": {
+            "name": "Side Dish"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 7,
+        "fields": {
+            "name": "Beverage"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 8,
+        "fields": {
+            "name": "Pasta"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 9,
+        "fields": {
+            "name": "Pizza"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 10,
+        "fields": {
+            "name": "Grill"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 11,
+        "fields": {
+            "name": "Seafood"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 12,
+        "fields": {
+            "name": "Vegetarian"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 13,
+        "fields": {
+            "name": "Vegan"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 14,
+        "fields": {
+            "name": "Breakfast"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 15,
+        "fields": {
+            "name": "Snacks"
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 1,
+        "fields": {
+            "name": "Grilled Salmon",
+            "description": "Freshly grilled salmon with vegetables.",
+            "price": "25.00",
+            "dish_type": 11,
+            "cooks": [1, 2]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 2,
+        "fields": {
+            "name": "Caesar Salad",
+            "description": "Classic Caesar with homemade dressing.",
+            "price": "10.50",
+            "dish_type": 4,
+            "cooks": [3, 4]
+        }
+    }
+]
