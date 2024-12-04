@@ -1,8 +1,229 @@
-body {
-    margin-top: 20px;
+/*!* Загальний стиль для сторінки *!*/
+/*body {*/
+/*    background-color: #f8f1e7; !* Пастельний бежевий *!*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*}*/
+
+/*!* Сайдбар *!*/
+/*.navbar {*/
+/*    background-color: #f0e6dd; !* Пастельний бежевий для фону сайдбара *!*/
+/*    color: #d66b75; !* Темно-рожевий для тексту *!*/
+/*}*/
+
+/*.navbar .navbar-brand {*/
+/*    font-weight: bold;*/
+/*    font-size: 1.25em;*/
+/*    color: #d66b75;*/
+/*}*/
+
+/*.navbar .nav-link {*/
+/*    font-weight: 500;*/
+/*    color: #6b6b6b;*/
+/*    text-decoration: none;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
+
+/*.navbar .nav-link:hover {*/
+/*    color: #d66b75;*/
+/*}*/
+
+/*!* Кнопки *!*/
+/*.btn-outline-danger {*/
+/*    color: #d66b75;*/
+/*    border-color: #d66b75;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*.btn-outline-danger:hover {*/
+/*    background-color: #d66b75;*/
+/*    color: #fff;*/
+/*}*/
+
+/*.btn-outline-secondary {*/
+/*    color: #6b6b6b;*/
+/*    border-color: #6b6b6b;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*.btn-outline-secondary:hover {*/
+/*    background-color: #6b6b6b;*/
+/*    color: #fff;*/
+/*}*/
+
+/*.logout-button {*/
+/*    background-color: #d66b75;*/
+/*    color: white;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.logout-button:hover {*/
+/*    background-color: #a7505f;*/
+/*}*/
+
+/*!* Основний контент *!*/
+/*.main-content {*/
+/*    margin-left: 16.666667%;*/
+/*    padding-top: 40px;*/
+/*    padding-left: 30px;*/
+/*}*/
+
+/*.header-text {*/
+/*    color: #d66b75; !* Рожевий колір заголовку *!*/
+/*    font-weight: 700;*/
+/*    text-align: center;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.card {*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*    margin-bottom: 20px;*/
+/*    padding: 20px;*/
+/*    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+/*}*/
+
+/*.card:hover {*/
+/*    transform: scale(1.03);*/
+/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);*/
+/*}*/
+:root {
+  --pink-beige: #f2e6e6;
+  --gray-beige: #e6e2e1;
+  --dark-pink-beige: #d9c5c5;
+  --text-color: #4a4a4a;
+  --accent-color: #c17878;
 }
 
-.link-to-page {
-    float: right;
-    margin: 0 2px 0 2px;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--pink-beige);
+  color: var(--text-color);
 }
+
+#sidebar {
+  background-color: var(--gray-beige);
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebarMenu {
+  padding: 20px;
+}
+
+#sidebarMenu .nav-link {
+  color: var(--text-color);
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+#sidebarMenu .nav-link:hover,
+#sidebarMenu .nav-link.active {
+  color: var(--accent-color);
+  background-color: var(--dark-pink-beige);
+}
+
+#sidebarMenu .nav-link i {
+  width: 20px;
+  text-align: center;
+}
+
+main {
+  background-color: var(--gray-beige);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.card {
+  background-color: var(--pink-beige);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 4rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+  background-color: #a86464;
+  border-color: #a86464;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: var(--dark-pink-beige);
+  color: var(--text-color);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.pagination .page-link {
+  color: var(--accent-color);
+}
+
+
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #e67e22;
+  border-color: #e67e22;
+}
+
+.btn-primary:hover {
+  background-color: #d35400;
+  border-color: #d35400;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #e67e22;
+  color: #ffffff;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #e67e22;
+  border-color: #e67e22;
+}
+
+.pagination .page-link {
+  color: #e67e22;
+}
+

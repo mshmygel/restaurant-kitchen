@@ -1,0 +1,189 @@
+{#<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">#}
+{#  <div class="container-fluid">#}
+{#    <a class="navbar-brand" href="{% url 'kitchen:home' %}">Restaurant Kitchen</a>#}
+{#    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"#}
+{#            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
+{#      <span class="navbar-toggler-icon"></span>#}
+{#    </button>#}
+{#    <div class="collapse navbar-collapse" id="navbarNav">#}
+{#      <ul class="navbar-nav me-auto mb-2 mb-lg-0">#}
+{#        <li class="nav-item">#}
+{#          <a class="nav-link" href="{% url 'kitchen:home' %}">Home</a>#}
+{#        </li>#}
+{#        <li class="nav-item dropdown">#}
+{#          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:dish_type-list' %}" id="dishTypesDropdown" role="button" data-bs-toggle="dropdown"#}
+{#             aria-expanded="false">#}
+{#            Dish Types#}
+{#          </a>#}
+{#          <ul class="dropdown-menu" aria-labelledby="dishTypesDropdown">#}
+{#            {% for dish_type in dish_types %}#}
+{#              <li><a class="dropdown-item" href="{% url 'kitchen:dish_type-list' %}">{{ dish_type.name }}</a></li>#}
+{#            {% endfor %}#}
+{#          </ul>#}
+{#        </li>#}
+{#        <li class="nav-item dropdown">#}
+{#          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:dish-list' %}" id="dishesDropdown" role="button" data-bs-toggle="dropdown"#}
+{#             aria-expanded="false">#}
+{#            Dishes#}
+{#          </a>#}
+{#          <ul class="dropdown-menu" aria-labelledby="dishesDropdown">#}
+{#            {% for dish in dishes %}#}
+{#              <li><a class="dropdown-item" href="#">{{ dish.name }} - {{ dish.price }}</a></li>#}
+{#            {% endfor %}#}
+{#          </ul>#}
+{#        </li>#}
+{#        <li class="nav-item dropdown">#}
+{#          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:cook-list' %}" id="cooksDropdown" role="button" data-bs-toggle="dropdown"#}
+{#             aria-expanded="false">#}
+{#            Cooks#}
+{#          </a>#}
+{#          <ul class="dropdown-menu" aria-labelledby="cooksDropdown">#}
+{#            {% for cook in cooks %}#}
+{#              <li><a class="dropdown-item" href="#">{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})</a>#}
+{#              </li>#}
+{#            {% endfor %}#}
+{#          </ul>#}
+{#        </li>#}
+{#      </ul>#}
+{#      <ul class="navbar-nav ml-auto">#}
+{#        {% if user.is_authenticated %}#}
+{#          <li class="nav-item">#}
+{#            <a class="nav-link" href="{% url 'kitchen:cook-detail' pk=user.pk %}">User: {{ user.get_username }}</a>#}
+{#          </li>#}
+{#          <li class="nav-item">#}
+{#            <form action="{% url 'accounts:logout' %}" method="post" style="display: inline;">#}
+{#              {% csrf_token %}#}
+{#              <button type="submit" class="btn btn-link nav-link">Logout</button>#}
+{#            </form>#}
+{#          </li>#}
+{#        {% else %}#}
+{#          <li class="nav-item">#}
+{#            <a class="nav-link" href="{% url 'accounts:login' %}?next={{ request.path }}">Login</a>#}
+{#          </li>#}
+{#        {% endif %}#}
+{#      </ul>#}
+{#    </div>#}
+{#  </div>#}
+{#</nav>#}
+
+{#<div class="container-fluid">#}
+{#  <div class="row">#}
+{#    <div class="col-md-2">#}
+{#      <nav class="p-4" style="height: 100vh; background-color: #f7f0e6; border-right: 1px solid #ddd;">#}
+{#        <a href="{% url 'kitchen:home' %}" class="navbar-brand mb-3 d-block text-danger" style="font-size: 1.5em;">#}
+{#          <i class="fas fa-utensils"></i> Restaurant Kitchen#}
+{#        </a>#}
+{##}
+{#        <!-- Список посилань для навігації -->#}
+{#        <div class="nav flex-column">#}
+{#          <a href="{% url 'kitchen:home' %}" class="nav-link text-danger mb-2">#}
+{#            <i class="fas fa-home me-2"></i> Home#}
+{#          </a>#}
+{##}
+{#          <a href="{% url 'kitchen:dish_type-list' %}" class="nav-link text-danger mb-2">#}
+{#            <i class="fas fa-list me-2"></i> Dish Types#}
+{#          </a>#}
+{##}
+{#          <a href="{% url 'kitchen:dish-list' %}" class="nav-link text-danger mb-2">#}
+{#            <i class="fas fa-pizza-slice me-2"></i> Dishes#}
+{#          </a>#}
+{##}
+{#          <a href="{% url 'kitchen:cook-list' %}" class="nav-link text-danger mb-2">#}
+{#            <i class="fas fa-user-tie me-2"></i> Cooks#}
+{#          </a>#}
+{#        </div>#}
+{##}
+{#        <hr class="my-4">#}
+{##}
+{#        <!-- Інформація про користувача -->#}
+{#        <div class="user-info">#}
+{#          {% if user.is_authenticated %}#}
+{#            <a href="{% url 'kitchen:cook-detail' pk=user.pk %}" class="nav-link text-secondary mb-3">#}
+{#              <i class="fas fa-user me-2"></i> User: {{ user.get_username }}#}
+{#            </a>#}
+{#            <form action="{% url 'accounts:logout' %}" method="post">#}
+{#              {% csrf_token %}#}
+{#              <button type="submit" class="btn btn-danger">#}
+{#                <i class="fas fa-sign-out-alt me-2"></i> Logout#}
+{#              </button>#}
+{#            </form>#}
+{#          {% else %}#}
+{#            <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="nav-link text-primary">#}
+{#              <i class="fas fa-sign-in-alt me-2"></i> Login#}
+{#            </a>#}
+{#          {% endif %}#}
+{#        </div>#}
+{#      </nav>#}
+{#    </div>#}
+{##}
+{#    <div class="col-md-10">#}
+{#      <!-- Основний контент сторінки тут -->#}
+{#      {% block content %}{% endblock %}#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+<nav id="sidebarMenu" class="d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <a href="{% url 'kitchen:home' %}"
+       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <i class="fas fa-utensils fa-2x me-2"></i>
+      <span class="fs-4">Gourmet Haven</span>
+    </a>
+    <hr>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'kitchen:home' %}">
+          <i class="fas fa-home me-2"></i>
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'kitchen:dish_type-list' %}">
+          <i class="fas fa-list me-2"></i>
+          Dish Types
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'kitchen:dish-list' %}">
+          <i class="fas fa-pizza-slice me-2"></i>
+          Dishes
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'kitchen:cook-list' %}">
+          <i class="fas fa-user-chef me-2"></i>
+          Cooks
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      {% if user.is_authenticated %}
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>{{ user.get_username }}</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+          <li><a class="dropdown-item" href="{% url 'kitchen:cook-detail' pk=user.pk %}">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <form action="{% url 'accounts:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="dropdown-item">Sign out</button>
+            </form>
+          </li>
+        </ul>
+      {% else %}
+        <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn btn-outline-primary w-100">
+          <i class="fas fa-sign-in-alt me-2"></i>
+          Login
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
