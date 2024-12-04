@@ -142,4 +142,6 @@ LOGIN_REDIRECT_URL = "kitchen:home"
 
 LOGOUT_REDIRECT_URL = None
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
