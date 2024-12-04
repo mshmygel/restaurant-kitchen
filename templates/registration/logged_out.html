@@ -1,6 +1,18 @@
+
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Logged out</p>
-  <a href="{% url 'accounts:login' %}">Click here to login again.</a>
+  <div class="logout-container">
+    <div class="logout-card">
+      <h2 class="logout-title">
+        <i class="fas fa-check-circle me-2"></i>
+        Logged Out
+      </h2>
+      <p class="logout-message">You have been successfully logged out.</p>
+      <a href="{% url 'accounts:login' %}" class="btn login-again-btn">
+        <i class="fas fa-sign-in-alt me-2"></i> Login Again
+      </a>
+    </div>
+  </div>
 {% endblock %}
+

@@ -1,33 +1,179 @@
+
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ cook.username }}
-    <a href="{% url 'kitchen:cook-delete' pk=cook.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-
-    <a href="{% url 'kitchen:cook-update' pk=cook.id %}" class="btn btn-secondary link-to-page">
-      Update Years of experience
-    </a>
-  </h1>
-
-  <p><strong>First name:</strong> {{ cook.first_name }}</p>
-  <p><strong>Last name:</strong> {{ cook.last_name }}</p>
-  <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
-  <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
-
-  <div class="ml-3">
-    <h4>Dishes</h4>
-
-    {% for dish in cook.dishes.all %}
-        <hr>
-        <p><strong>Name:</strong> {{ dish.name }}</p>
-        <p><strong>Dish Type:</strong> {{ dish.dish_type.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{dish.id}}</p>
-
-    {% empty %}
-      <p>No dishes!</p>
-    {% endfor %}
+<div class="content-wrapper">
+  <div class="cook-header">
+    <h1 class="cook-title">{{ cook.username }}</h1>
+    <div class="cook-actions">
+      <a href="{% url 'kitchen:cook-update' pk=cook.id %}" class="btn btn-edit">
+        <i class="fas fa-edit"></i> Update
+      </a>
+      <a href="{% url 'kitchen:cook-delete' pk=cook.id %}" class="btn btn-delete">
+        <i class="fas fa-trash"></i> Delete
+      </a>
+    </div>
   </div>
+
+  <div class="cook-info">
+    <p><strong>First name:</strong> {{ cook.first_name }}</p>
+    <p><strong>Last name:</strong> {{ cook.last_name }}</p>
+    <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+    <p><strong>Is staff:</strong> {{ cook.is_staff|yesno:"Yes,No" }}</p>
+  </div>
+
+  <div class="cook-dishes">
+    <h2 class="section-title">Dishes</h2>
+    {% if cook.dishes.all %}
+      <div class="dishes-list">
+        {% for dish in cook.dishes.all %}
+          <div class="dish-item">
+            <h3 class="dish-name">{{ dish.name }}</h3>
+            <p class="dish-type"><strong>Dish Type:</strong> {{ dish.dish_type.name }}</p>
+            <p class="dish-id"><small>ID: {{ dish.id }}</small></p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-dishes">No dishes assigned.</p>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .content-wrapper {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .content-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .cook-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #FFE5D9;
+  }
+
+  .cook-title {
+    color: #2A7886;
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .cook-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-edit {
+    background-color: #FFB4A2;
+    color: #333333;
+  }
+
+  .btn-delete {
+    background-color: #E56B6F;
+    color: #ffffff;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .cook-info {
+    background-color: #F8F9FA;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cook-info p {
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    color: #2A7886;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .dishes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .dish-item {
+    background-color: #FFE5D9;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .dish-item:hover {
+    background-color: #FFD3B6;
+    transform: translateY(-3px);
+  }
+
+  .dish-name {
+    color: #2A7886;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dish-type {
+    margin-bottom: 0.25rem;
+  }
+
+  .dish-id {
+    color: #6c757d;
+    margin-bottom: 0;
+  }
+
+  .no-dishes {
+    color: #6c757d;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .cook-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cook-actions {
+      margin-top: 1rem;
+    }
+
+    .btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .dishes-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 {% endblock %}
+

@@ -1,189 +1,206 @@
-{#<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">#}
-{#  <div class="container-fluid">#}
-{#    <a class="navbar-brand" href="{% url 'kitchen:home' %}">Restaurant Kitchen</a>#}
-{#    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"#}
-{#            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
-{#      <span class="navbar-toggler-icon"></span>#}
-{#    </button>#}
-{#    <div class="collapse navbar-collapse" id="navbarNav">#}
-{#      <ul class="navbar-nav me-auto mb-2 mb-lg-0">#}
-{#        <li class="nav-item">#}
-{#          <a class="nav-link" href="{% url 'kitchen:home' %}">Home</a>#}
-{#        </li>#}
-{#        <li class="nav-item dropdown">#}
-{#          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:dish_type-list' %}" id="dishTypesDropdown" role="button" data-bs-toggle="dropdown"#}
-{#             aria-expanded="false">#}
-{#            Dish Types#}
-{#          </a>#}
-{#          <ul class="dropdown-menu" aria-labelledby="dishTypesDropdown">#}
-{#            {% for dish_type in dish_types %}#}
-{#              <li><a class="dropdown-item" href="{% url 'kitchen:dish_type-list' %}">{{ dish_type.name }}</a></li>#}
-{#            {% endfor %}#}
-{#          </ul>#}
-{#        </li>#}
-{#        <li class="nav-item dropdown">#}
-{#          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:dish-list' %}" id="dishesDropdown" role="button" data-bs-toggle="dropdown"#}
-{#             aria-expanded="false">#}
-{#            Dishes#}
-{#          </a>#}
-{#          <ul class="dropdown-menu" aria-labelledby="dishesDropdown">#}
-{#            {% for dish in dishes %}#}
-{#              <li><a class="dropdown-item" href="#">{{ dish.name }} - {{ dish.price }}</a></li>#}
-{#            {% endfor %}#}
-{#          </ul>#}
-{#        </li>#}
-{#        <li class="nav-item dropdown">#}
-{#          <a class="nav-link dropdown-toggle" href="{% url 'kitchen:cook-list' %}" id="cooksDropdown" role="button" data-bs-toggle="dropdown"#}
-{#             aria-expanded="false">#}
-{#            Cooks#}
-{#          </a>#}
-{#          <ul class="dropdown-menu" aria-labelledby="cooksDropdown">#}
-{#            {% for cook in cooks %}#}
-{#              <li><a class="dropdown-item" href="#">{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})</a>#}
-{#              </li>#}
-{#            {% endfor %}#}
-{#          </ul>#}
-{#        </li>#}
-{#      </ul>#}
-{#      <ul class="navbar-nav ml-auto">#}
-{#        {% if user.is_authenticated %}#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'kitchen:cook-detail' pk=user.pk %}">User: {{ user.get_username }}</a>#}
-{#          </li>#}
-{#          <li class="nav-item">#}
-{#            <form action="{% url 'accounts:logout' %}" method="post" style="display: inline;">#}
-{#              {% csrf_token %}#}
-{#              <button type="submit" class="btn btn-link nav-link">Logout</button>#}
-{#            </form>#}
-{#          </li>#}
-{#        {% else %}#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'accounts:login' %}?next={{ request.path }}">Login</a>#}
-{#          </li>#}
-{#        {% endif %}#}
-{#      </ul>#}
-{#    </div>#}
-{#  </div>#}
-{#</nav>#}
 
-{#<div class="container-fluid">#}
-{#  <div class="row">#}
-{#    <div class="col-md-2">#}
-{#      <nav class="p-4" style="height: 100vh; background-color: #f7f0e6; border-right: 1px solid #ddd;">#}
-{#        <a href="{% url 'kitchen:home' %}" class="navbar-brand mb-3 d-block text-danger" style="font-size: 1.5em;">#}
-{#          <i class="fas fa-utensils"></i> Restaurant Kitchen#}
-{#        </a>#}
-{##}
-{#        <!-- Список посилань для навігації -->#}
-{#        <div class="nav flex-column">#}
-{#          <a href="{% url 'kitchen:home' %}" class="nav-link text-danger mb-2">#}
-{#            <i class="fas fa-home me-2"></i> Home#}
-{#          </a>#}
-{##}
-{#          <a href="{% url 'kitchen:dish_type-list' %}" class="nav-link text-danger mb-2">#}
-{#            <i class="fas fa-list me-2"></i> Dish Types#}
-{#          </a>#}
-{##}
-{#          <a href="{% url 'kitchen:dish-list' %}" class="nav-link text-danger mb-2">#}
-{#            <i class="fas fa-pizza-slice me-2"></i> Dishes#}
-{#          </a>#}
-{##}
-{#          <a href="{% url 'kitchen:cook-list' %}" class="nav-link text-danger mb-2">#}
-{#            <i class="fas fa-user-tie me-2"></i> Cooks#}
-{#          </a>#}
-{#        </div>#}
-{##}
-{#        <hr class="my-4">#}
-{##}
-{#        <!-- Інформація про користувача -->#}
-{#        <div class="user-info">#}
-{#          {% if user.is_authenticated %}#}
-{#            <a href="{% url 'kitchen:cook-detail' pk=user.pk %}" class="nav-link text-secondary mb-3">#}
-{#              <i class="fas fa-user me-2"></i> User: {{ user.get_username }}#}
-{#            </a>#}
-{#            <form action="{% url 'accounts:logout' %}" method="post">#}
-{#              {% csrf_token %}#}
-{#              <button type="submit" class="btn btn-danger">#}
-{#                <i class="fas fa-sign-out-alt me-2"></i> Logout#}
-{#              </button>#}
-{#            </form>#}
-{#          {% else %}#}
-{#            <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="nav-link text-primary">#}
-{#              <i class="fas fa-sign-in-alt me-2"></i> Login#}
-{#            </a>#}
-{#          {% endif %}#}
-{#        </div>#}
-{#      </nav>#}
-{#    </div>#}
-{##}
-{#    <div class="col-md-10">#}
-{#      <!-- Основний контент сторінки тут -->#}
-{#      {% block content %}{% endblock %}#}
-{#    </div>#}
-{#  </div>#}
-{#</div>#}
-
-<nav id="sidebarMenu" class="d-md-block bg-light sidebar collapse">
-  <div class="position-sticky pt-3">
-    <a href="{% url 'kitchen:home' %}"
-       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <i class="fas fa-utensils fa-2x me-2"></i>
-      <span class="fs-4">Gourmet Haven</span>
+<nav class="navbar navbar-expand-md navbar-light flex-column align-items-start p-3" id="sidebar">
+  <div class="sidebar-header mb-4">
+    <a class="navbar-brand text-truncate w-100" href="{% url 'kitchen:home' %}">
+      <i class="fas fa-utensils"></i> Gourmet Haven
     </a>
-    <hr>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'kitchen:home' %}">
-          <i class="fas fa-home me-2"></i>
-          Home
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'kitchen:dish_type-list' %}">
-          <i class="fas fa-list me-2"></i>
-          Dish Types
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'kitchen:dish-list' %}">
-          <i class="fas fa-pizza-slice me-2"></i>
-          Dishes
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'kitchen:cook-list' %}">
-          <i class="fas fa-user-chef me-2"></i>
-          Cooks
-        </a>
-      </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-      {% if user.is_authenticated %}
-        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
-           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong>{{ user.get_username }}</strong>
-        </a>
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-          <li><a class="dropdown-item" href="{% url 'kitchen:cook-detail' pk=user.pk %}">Profile</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <form action="{% url 'accounts:logout' %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="dropdown-item">Sign out</button>
-            </form>
-          </li>
-        </ul>
-      {% else %}
-        <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn btn-outline-primary w-100">
-          <i class="fas fa-sign-in-alt me-2"></i>
-          Login
-        </a>
-      {% endif %}
-    </div>
+  </div>
+  
+  <div class="nav flex-column w-100">
+    <a href="{% url 'kitchen:home' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+      <i class="fas fa-home me-2"></i>
+      <span class="nav-text">Home</span>
+    </a>
+
+    <a href="{% url 'kitchen:dish_type-list' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'dish_type-list' %}active{% endif %}">
+      <i class="fas fa-list me-2"></i>
+      <span class="nav-text">Dish Types</span>
+    </a>
+
+    <a href="{% url 'kitchen:dish-list' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'dish-list' %}active{% endif %}">
+      <i class="fas fa-pizza-slice me-2"></i>
+      <span class="nav-text">Dishes</span>
+    </a>
+
+    <a href="{% url 'kitchen:cook-list' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'cook-list' %}active{% endif %}">
+      <i class="fa-solid fa-user-ninja"></i>
+      <span class="nav-text">Cooks</span>
+    </a>
+  </div>
+
+  <div class="mt-auto w-100">
+    {% if user.is_authenticated %}
+      <a href="{% url 'kitchen:cook-detail' pk=user.pk %}" class="btn admin-btn w-100 mb-2">
+        <i class="fas fa-user"></i>
+        <span>{{ user.get_username }}</span>
+      </a>
+      <form action="{% url 'accounts:logout' %}" method="post" class="w-100">
+        {% csrf_token %}
+        <button type="submit" class="btn logout-btn w-100">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </button>
+      </form>
+    {% else %}
+      <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn login-btn w-100">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </a>
+    {% endif %}
   </div>
 </nav>
+
+<style>
+#sidebar {
+  background-color: var(--sidebar-background);
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--sidebar-background);
+  padding: 10px 0;
+  z-index: 1001;
+  width: 100%;
+}
+
+.navbar-brand {
+  color: #333333 !important;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.nav-btn {
+  background-color: #FFB4A2 !important;
+  color: #333333 !important;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none !important;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-btn:hover {
+  background-color: #E5989B !important;
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.nav-btn.active {
+  background-color: #E5989B !important;
+  color: #ffffff !important;
+}
+
+.admin-btn {
+  background-color: #6D6875 !important;
+  color: #ffffff !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #4A4751 !important;
+}
+
+.logout-btn {
+  background-color: #E56B6F !important;
+  color: #ffffff !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #B56264 !important;
+}
+
+.login-btn {
+  background-color: #6D6875 !important;
+  color: #ffffff !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #4A4751 !important;
+}
+
+.nav-text {
+  margin-left: 8px;
+}
+
+/* Ensure text truncation works */
+.text-truncate {
+  max-width: 100%;
+}
+
+/* Add custom scrollbar */
+#sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: var(--sidebar-background);
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: var(--button-color);
+  border-radius: 3px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover-color);
+}
+
+/* Adjust main content to not be covered by sidebar */
+#page-content-wrapper {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  #page-content-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.admin-btn, .logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+.admin-btn i, .logout-btn i {
+  width: 1rem;
+  text-align: center;
+}
+</style>
 

@@ -1,10 +1,107 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete dish type?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
+<div class="delete-confirmation">
+  <div class="delete-card">
+    <h2 class="delete-title">Delete dish type?</h2>
+    <p class="delete-message">Are you sure you want to delete "{{ object.name }}"?</p>
+    
+    <form action="" method="post" class="delete-form">
+      {% csrf_token %}
+      <div class="button-group">
+        <button type="submit" class="btn btn-delete">
+          Yes
+        </button>
+        <a href="{% url 'kitchen:dish_type-list' %}" class="btn btn-cancel">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+<style>
+.delete-confirmation {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.delete-card {
+  background-color: #FFE5E5;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delete-title {
+  color: #E53935;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.delete-message {
+  color: #424242;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+  min-width: 120px;
+}
+
+.btn-delete {
+  background-color: #E53935;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #D32F2F;
+  transform: translateY(-2px);
+}
+
+.btn-cancel {
+  background-color: #E0E0E0;
+  color: #424242;
+  text-decoration: none;
+}
+
+.btn-cancel:hover {
+  background-color: #BDBDBD;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .delete-card {
+    padding: 1.5rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+</style>
 {% endblock %}
+
