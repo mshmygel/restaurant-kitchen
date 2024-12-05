@@ -2,6 +2,6 @@
 
 https://restaurant-kitchen-mitq.onrender.com
 
-login: admin
+login: test
 
-password: 123
+password: Test123123
