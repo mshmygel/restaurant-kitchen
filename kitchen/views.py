@@ -16,6 +16,7 @@ from kitchen.forms import (
 )
 from kitchen.models import Cook, Dish, DishType
 
+
 @login_required
 def index(request):
 
@@ -34,6 +35,7 @@ def index(request):
     }
 
     return render(request, "kitchen/index.html", context=context)
+
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
@@ -185,4 +187,3 @@ def toggle_assign_to_dish(request, pk):
         dish.cooks.remove(request.user)
 
     return redirect("kitchen:dish-detail", pk=pk)
-

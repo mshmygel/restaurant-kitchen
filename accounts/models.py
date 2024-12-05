@@ -4,7 +4,9 @@ from django.urls import reverse
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField(null=False, blank=False, default=0)
+    years_of_experience = models.IntegerField(
+        null=False, blank=False, default=0
+    )
 
     class Meta:
         verbose_name = "cook"
@@ -15,4 +17,3 @@ class Cook(AbstractUser):
 
     def get_absolute_url(self):
         return reverse("kitchen:cook-detail", kwargs={"pk": self.pk})
-

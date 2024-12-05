@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
@@ -35,7 +34,6 @@ class CookExperienceUpdateForm(ExperienceValidationMixin, forms.ModelForm):
         fields = ("years_of_experience",)
 
 
-
 class DishForm(forms.ModelForm):
     cooks = forms.ModelMultipleChoiceField(
         queryset=Cook.objects.all(),
@@ -59,7 +57,6 @@ class CookSearchForm(forms.Form):
             }
         )
     )
-
 
 
 class DishSearchForm(forms.Form):
