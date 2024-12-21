@@ -1,10 +1,10 @@
 from django.test import TestCase
 
-from kitchen.forms import CookCreationForm
+from accounts.forms import CookCreationForm
 
 
 class FormsTests(TestCase):
-    def test_chef_creation_form_is_valid(self):
+    def test_cook_creation_form_is_valid(self):
         form_data = {
             "username": "stiven.rou",
             "password1": "a0s9d8f7",
