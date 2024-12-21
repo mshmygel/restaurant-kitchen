@@ -2,8 +2,6 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-from accounts.models import Cook
-
 
 class DishType(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -26,6 +24,11 @@ class Dish(models.Model):
         settings.AUTH_USER_MODEL,
         related_name="dishes"
     )
+
+    class Meta:
+
+        verbose_name_plural = "Dishes"
+        ordering = ["name"]
 
     def __str__(self):
         return f"{self.name}, price: {self.price}, description: {self.description}"
