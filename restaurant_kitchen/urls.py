@@ -21,11 +21,11 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from django.urls import path, include
 from django.contrib import admin
 
-from kitchen.views import index
+from kitchen.views import IndexView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("", include("kitchen.urls", namespace="kitchen")),
-    path("", index, name="home"),
+    path("", IndexView.as_view(), name="home"),
 ] + debug_toolbar_urls()
