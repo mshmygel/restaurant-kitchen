@@ -24,7 +24,7 @@
       <span class="nav-text">Dishes</span>
     </a>
 
-    <a href="{% url 'kitchen:cook-list' %}" 
+    <a href="{% url 'accounts:cook-list' %}" 
        class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'cook-list' %}active{% endif %}">
       <i class="fa-solid fa-user-ninja"></i>
       <span class="nav-text">Cooks</span>
@@ -33,7 +33,7 @@
 
   <div class="mt-auto w-100">
     {% if user.is_authenticated %}
-      <a href="{% url 'kitchen:cook-detail' pk=user.pk %}" class="btn admin-btn w-100 mb-2">
+      <a href="{% url 'accounts:cook-detail' pk=user.pk %}" class="btn admin-btn w-100 mb-2">
         <i class="fas fa-user"></i>
         <span>{{ user.get_username }}</span>
       </a>

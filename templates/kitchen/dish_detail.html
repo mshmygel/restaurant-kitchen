@@ -29,7 +29,7 @@
       <ul class="cooks-list">
         {% for cook in dish.cooks.all %}
           <li class="cook-item">
-            <a href="{% url 'kitchen:cook-detail' pk=cook.id %}" class="cook-link">
+            <a href="{% url 'accounts:cook-detail' pk=cook.id %}" class="cook-link">
               {{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})
             </a>
           </li>

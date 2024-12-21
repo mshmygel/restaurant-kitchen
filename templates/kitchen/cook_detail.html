@@ -6,10 +6,10 @@
   <div class="cook-header">
     <h1 class="cook-title">{{ cook.username }}</h1>
     <div class="cook-actions">
-      <a href="{% url 'kitchen:cook-update' pk=cook.id %}" class="btn btn-edit">
+      <a href="{% url 'accounts:cook-update' pk=cook.id %}" class="btn btn-edit">
         <i class="fas fa-edit"></i> Update
       </a>
-      <a href="{% url 'kitchen:cook-delete' pk=cook.id %}" class="btn btn-delete">
+      <a href="{% url 'accounts:cook-delete' pk=cook.id %}" class="btn btn-delete">
         <i class="fas fa-trash"></i> Delete
       </a>
     </div>

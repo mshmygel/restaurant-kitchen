@@ -8,7 +8,7 @@
     <h1 class="content-title">
       <i class="fa-solid fa-user-ninja"></i>Cooks
     </h1>
-    <a href="{% url 'kitchen:cook-create' %}" class="btn btn-create">
+    <a href="{% url 'accounts:cook-create' %}" class="btn btn-create">
       <i class="fas fa-plus me-2"></i>Create New
     </a>
   </div>
@@ -51,12 +51,12 @@
               <td class="col-experience">{{ cook.years_of_experience }} years</td>
               <td class="col-actions">
                 <div class="action-buttons">
-                  <a href="{% url 'kitchen:cook-update' pk=cook.id %}" 
+                  <a href="{% url 'accounts:cook-update' pk=cook.id %}" 
                      class="btn btn-icon btn-edit" 
                      title="Edit">
                     <i class="fas fa-edit"></i>
                   </a>
-                  <a href="{% url 'kitchen:cook-delete' pk=cook.id %}" 
+                  <a href="{% url 'accounts:cook-delete' pk=cook.id %}" 
                      class="btn btn-icon btn-delete" 
                      title="Delete">
                     <i class="fas fa-trash"></i>
