@@ -1,40 +1,34 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import get_object_or_404
+from django.views.generic import TemplateView, View
 
-
+from accounts.models import Cook
 from kitchen.forms import (
     DishTypeSearchForm,
     DishSearchForm,
     DishForm,
-    CookSearchForm,
-    CookCreationForm,
-    CookExperienceUpdateForm
 )
-from kitchen.models import Cook, Dish, DishType
+from kitchen.models import Dish, DishType
 
 
-@login_required
-def index(request):
+class IndexView(LoginRequiredMixin, TemplateView):
+    template_name = "kitchen/index.html"
 
-    num_cooks = Cook.objects.count()
-    num_dishes = Dish.objects.count()
-    num_dish_types = DishType.objects.count()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["num_cooks"] = Cook.objects.count()
+        context["num_dishes"] = Dish.objects.count()
+        context["num_dish_types"] = DishType.objects.count()
 
-    num_visits = request.session.get("num_visits", 0)
-    request.session["num_visits"] = num_visits + 1
+        num_visits = self.request.session.get("num_visits", 0)
+        self.request.session["num_visits"] = num_visits + 1
+        context["num_visits"] = num_visits + 1
 
-    context = {
-        "num_cooks": num_cooks,
-        "num_dishes": num_dishes,
-        "num_dish_types": num_dish_types,
-        "num_visits": num_visits + 1,
-    }
+        return context
 
-    return render(request, "kitchen/index.html", context=context)
 
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
@@ -129,61 +123,15 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:dish-list")
 
 
-class CookListView(LoginRequiredMixin, generic.ListView):
-    model = Cook
-    template_name = "kitchen/cook_list.html"
-    paginate_by = 10
+class ToggleAssignToDishView(LoginRequiredMixin, View):
+    def get(self, request, pk, *args, **kwargs):
+        dish = get_object_or_404(Dish, id=pk)
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(CookListView, self).get_context_data(**kwargs)
-        username = self.request.GET.get("username", "")
-        context["search_form"] = CookSearchForm(
-            initial={"username": username}
-        )
-        return context
+        if not dish.cooks.filter(id=request.user.id).exists():
+            dish.cooks.add(request.user)
+        else:
+            dish.cooks.remove(request.user)
 
-    def get_queryset(self):
-        queryset = Cook.objects.all()
-        form = CookSearchForm(self.request.GET)
-        if form.is_valid():
-            return queryset.filter(
-                username__icontains=form.cleaned_data["username"])
-        return queryset
+        return redirect("kitchen:dish-detail", pk=pk)
 
 
-class CookDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Cook
-    template_name = "kitchen/cook_detail.html"
-    queryset = Cook.objects.all().prefetch_related("dishes__dish_type")
-
-
-class CookCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Cook
-    template_name = "kitchen/cook_form.html"
-    form_class = CookCreationForm
-    success_url = reverse_lazy("kitchen:cook-list")
-
-
-class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Cook
-    template_name = "kitchen/cook_form.html"
-    form_class = CookExperienceUpdateForm
-    success_url = reverse_lazy("kitchen:cook-list")
-
-
-class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
-    model = Cook
-    template_name = "kitchen/cook_confirm_delete.html"
-    success_url = reverse_lazy("kitchen:cook-list")
-
-
-@login_required
-def toggle_assign_to_dish(request, pk):
-    dish = get_object_or_404(Dish, id=pk)
-
-    if request.user not in dish.cooks.all():
-        dish.cooks.add(request.user)
-    else:
-        dish.cooks.remove(request.user)
-
-    return redirect("kitchen:dish-detail", pk=pk)
