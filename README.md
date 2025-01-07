@@ -27,8 +27,7 @@ Preview of the application interface:
 - [📁 Project Structure](#-project-structure)
 - [📚 API Documentation](#-api-documentation)
 - [🧪 Testing](#-testing)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+
 
 ---
 
