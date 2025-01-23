@@ -1,0 +1,217 @@
+<nav class="navbar navbar-expand-md navbar-light flex-column align-items-start p-3" id="sidebar">
+  <div class="sidebar-header mb-4">
+    <a class="navbar-brand text-truncate w-100" href="{% url 'kitchen:home' %}">
+      <i class="fas fa-utensils"></i> Gourmet Haven
+    </a>
+  </div>
+  
+  <div class="nav flex-column w-100">
+    <a href="{% url 'kitchen:home' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+      <i class="fas fa-home me-2"></i>
+      <span class="nav-text">Home</span>
+    </a>
+
+    <a href="{% url 'kitchen:dish_type-list' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'dish_type-list' %}active{% endif %}">
+      <i class="fas fa-list me-2"></i>
+      <span class="nav-text">Dish Types</span>
+    </a>
+
+    <a href="{% url 'kitchen:dish-list' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'dish-list' %}active{% endif %}">
+      <i class="fas fa-pizza-slice me-2"></i>
+      <span class="nav-text">Dishes</span>
+    </a>
+
+    <a href="{% url 'accounts:cook-list' %}" 
+       class="nav-btn mb-2 w-100 d-flex align-items-center text-truncate {% if request.resolver_match.url_name == 'cook-list' %}active{% endif %}">
+      <i class="fa-solid fa-user-ninja"></i>
+      <span class="nav-text">Cooks</span>
+    </a>
+  </div>
+
+  <div class="mt-auto w-100">
+    {% if user.is_authenticated %}
+      <a href="{% url 'accounts:cook-detail' pk=user.pk %}" class="btn admin-btn w-100 mb-2">
+        <i class="fas fa-user"></i>
+        <span>{{ user.get_username }}</span>
+      </a>
+      <form action="{% url 'accounts:logout' %}" method="post" class="w-100">
+        {% csrf_token %}
+        <button type="submit" class="btn logout-btn w-100">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </button>
+      </form>
+    {% else %}
+      <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn login-btn w-100">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </a>
+    {% endif %}
+  </div>
+</nav>
+
+<style>
+#sidebar {
+  background-color: lightslategrey;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  position: sticky;
+  top: 0;
+  background-color: lightslategrey;
+  padding: 10px 0;
+  z-index: 1001;
+  width: 100%;
+}
+
+.navbar-brand {
+  color: #FFFFFF !important;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.nav-btn {
+  background-color: #FF9A8B !important;
+  color: #FFFFFF !important;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none !important;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background-color: #FFFFFF !important;
+  color: #020B43 !important;
+}
+
+.nav-btn:hover i,
+.nav-btn.active i {
+  color: #020B43;
+}
+
+.admin-btn {
+  background-color: #FFD3D3 !important;
+  color: #333333 !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #FFB6B6 !important;
+}
+
+.logout-btn {
+  background-color: #FF9A8B !important;
+  color: #ffffff !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #B56264 !important;
+}
+
+.login-btn {
+  background-color: #6D6875 !important;
+  color: #ffffff !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #4A4751 !important;
+}
+
+.nav-text {
+  margin-left: 8px;
+}
+
+/* Ensure text truncation works */
+.text-truncate {
+  max-width: 100%;
+}
+
+/* Add custom scrollbar */
+#sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: #2A7886;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: var(--button-color);
+  border-radius: 3px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover-color);
+}
+
+/* Adjust main content to not be covered by sidebar */
+#page-content-wrapper {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  #page-content-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.admin-btn, .logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+.admin-btn i, .logout-btn i {
+  width: 1rem;
+  text-align: center;
+}
+
+.nav-btn i, .admin-btn i, .logout-btn i, .login-btn i {
+  color: #2A7886;
+}
+
+.nav-btn:hover i,
+.nav-btn.active i,
+.admin-btn:hover i,
+.logout-btn:hover i,
+.login-btn:hover i {
+  color: #020B43;
+}
+</style>
+

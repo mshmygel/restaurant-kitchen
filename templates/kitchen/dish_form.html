@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title mb-4">{{ object|yesno:"Update,Create" }} Dish</h2>
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save"></i> Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+
+  .checkbox-select-multiple {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkbox-select-multiple div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .checkbox-select-multiple label {
+    display: flex !important;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0.25rem 0;
+  }
+
+  .checkbox-select-multiple input[type="checkbox"] {
+    margin-right: 0.5rem !important;
+  }
+
+.checkbox-select-multiple {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.checkbox-select-multiple div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.checkbox-select-multiple label {
+  display: flex !important;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin: 0 !important;
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease;
+  text-indent: 0 !important;
+}
+
+
+.checkbox-select-multiple .checkbox {
+  margin: 0 !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+}
+
+.checkbox-select-multiple input[type="checkbox"] {
+  margin: 0 0.75rem 0 0 !important;
+  padding: 0 !important;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #2A7886;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #236271;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.btn-secondary:hover {
+  background-color: #dee2e6;
+  transform: translateY(-2px);
+}
+
+/* Error states */
+.error input,
+.error select,
+.error textarea {
+  border-color: #E56B6F;
+}
+
+.error .text-danger {
+  color: #E56B6F;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+
+.asteriskField {
+  color: #E56B6F;
+  margin-left: 4px;
+}
+
+
+@media (max-width: 640px) {
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
+{% endblock %}
+

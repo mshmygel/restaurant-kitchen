@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Gourmet Haven{% endblock %}
+
+{% block content %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h1 class="card-title mb-4 text-center fw-bold">Welcome to Gourmet Haven</h1>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <div class="card-icon text-center">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <h5 class="card-title text-center fw-bold">Featured Dish</h5>
+              <p class="card-text text-center flex-grow-1">Discover our chef's special creation of the day.</p>
+              <a href="{% url 'kitchen:dish_type-list' %}" class="btn btn-primary d-block mt-auto">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <div class="card-icon text-center">
+                <i class="fa-solid fa-user-ninja"></i>
+              </div>
+              <h5 class="card-title text-center fw-bold">Meet Our Chefs</h5>
+              <p class="card-text text-center flex-grow-1">Get to know the talented individuals behind our delicious meals.</p>
+              <a href="{% url 'accounts:cook-list' %}" class="btn btn-primary d-block mt-auto">View Chefs</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <div class="card-icon text-center">
+                <i class="fa-solid fa-burger"></i>
+              </div>
+              <h5 class="card-title text-center fw-bold">Explore Our Menu</h5>
+              <p class="card-text text-center flex-grow-1">Browse through our wide selection of mouthwatering dishes.</p>
+              <a href="{% url 'kitchen:dish-list' %}" class="btn btn-primary d-block mt-auto">View Menu</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <div class="card-icon text-center">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <h5 class="card-title text-center fw-bold">Kitchen Statistics</h5>
+              <ul class="list-unstyled text-center flex-grow-1">
+                <li><strong>Cooks:</strong> {{ num_cooks }}</li>
+                <li><strong>Dishes:</strong> {{ num_dishes }}</li>
+                <li><strong>Dish Types:</strong> {{ num_dish_types }}</li>
+                <li><strong>Visits:</strong> {{ num_visits }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2 class="card-title mb-4 text-center fw-bold">Latest Updates</h2>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>2024-12-01</td>
+            <td>New Menu Items</td>
+            <td>We've added 5 new exciting dishes to our menu!</td>
+          </tr>
+          <tr>
+            <td>2024-11-15</td>
+            <td>Chef of the Month</td>
+            <td>Congratulations to Chef Maria for being our Chef of the Month!</td>
+          </tr>
+          <tr>
+            <td>2024-11-01</td>
+            <td>Kitchen Renovation</td>
+            <td>Our kitchen has been upgraded with state-of-the-art equipment.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<style>
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .card-text {
+    flex-grow: 1;
+  }
+  .btn {
+    margin-top: auto;
+  }
+  .table thead {
+    background-color: #FFE5D9;
+  }
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+</style>
+{% endblock %}
+

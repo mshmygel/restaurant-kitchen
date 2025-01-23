@@ -1,0 +1,137 @@
+:root {
+  --background-color: #FFE4DE;
+  --sidebar-background: #FFF0EB;
+  --button-color: #FFB4A2;
+  --button-hover-color: #E5989B;
+  --text-color: #333333;
+  --card-background: #FFFFFF;
+  --table-header: #4ECCA3;
+  --link-color: #2A7886;
+  --accent-color: #2A7886;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-background);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 4rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.btn-primary {
+  background-color: var(--button-color);
+  border-color: var(--button-color);
+  color: var(--text-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: var(--table-header);
+  color: var(--text-color);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.pagination .page-link {
+  color: var(--accent-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #page-content-wrapper {
+    padding-left: 0;
+  }
+}
+
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding: 2rem;
+}
+
+.logout-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.logout-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logout-title {
+  color: #2A7886;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.logout-message {
+  color: #333333;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.login-again-btn {
+  background-color: #FFB4A2;
+  border-color: #FFB4A2;
+  color: #333333;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.login-again-btn:hover {
+  background-color: #E5989B;
+  border-color: #E5989B;
+  transform: translateY(-2px);
+}
+
+

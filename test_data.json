@@ -1,0 +1,600 @@
+[
+    {
+        "model": "accounts.cook",
+        "pk": 1,
+        "fields": {
+            "username": "alex_smith",
+            "first_name": "Alex",
+            "last_name": "Smith",
+            "years_of_experience": 5,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 2,
+        "fields": {
+            "username": "emma_johnson",
+            "first_name": "Emma",
+            "last_name": "Johnson",
+            "years_of_experience": 7,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 3,
+        "fields": {
+            "username": "liam_williams",
+            "first_name": "Liam",
+            "last_name": "Williams",
+            "years_of_experience": 4,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 4,
+        "fields": {
+            "username": "olivia_brown",
+            "first_name": "Olivia",
+            "last_name": "Brown",
+            "years_of_experience": 8,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 5,
+        "fields": {
+            "username": "noah_jones",
+            "first_name": "Noah",
+            "last_name": "Jones",
+            "years_of_experience": 10,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 6,
+        "fields": {
+            "username": "sophia_garcia",
+            "first_name": "Sophia",
+            "last_name": "Garcia",
+            "years_of_experience": 6,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 7,
+        "fields": {
+            "username": "william_martinez",
+            "first_name": "William",
+            "last_name": "Martinez",
+            "years_of_experience": 3,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 8,
+        "fields": {
+            "username": "ava_davis",
+            "first_name": "Ava",
+            "last_name": "Davis",
+            "years_of_experience": 9,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 9,
+        "fields": {
+            "username": "james_rodriguez",
+            "first_name": "James",
+            "last_name": "Rodriguez",
+            "years_of_experience": 11,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 10,
+        "fields": {
+            "username": "mia_lopez",
+            "first_name": "Mia",
+            "last_name": "Lopez",
+            "years_of_experience": 5,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 11,
+        "fields": {
+            "username": "logan_white",
+            "first_name": "Logan",
+            "last_name": "White",
+            "years_of_experience": 2,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 12,
+        "fields": {
+            "username": "isabella_harris",
+            "first_name": "Isabella",
+            "last_name": "Harris",
+            "years_of_experience": 8,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 13,
+        "fields": {
+            "username": "benjamin_clark",
+            "first_name": "Benjamin",
+            "last_name": "Clark",
+            "years_of_experience": 6,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 14,
+        "fields": {
+            "username": "amelia_lewis",
+            "first_name": "Amelia",
+            "last_name": "Lewis",
+            "years_of_experience": 7,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 15,
+        "fields": {
+            "username": "elijah_walker",
+            "first_name": "Elijah",
+            "last_name": "Walker",
+            "years_of_experience": 4,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 16,
+        "fields": {
+            "username": "harper_hall",
+            "first_name": "Harper",
+            "last_name": "Hall",
+            "years_of_experience": 3,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 17,
+        "fields": {
+            "username": "jacob_allen",
+            "first_name": "Jacob",
+            "last_name": "Allen",
+            "years_of_experience": 9,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 18,
+        "fields": {
+            "username": "evelyn_young",
+            "first_name": "Evelyn",
+            "last_name": "Young",
+            "years_of_experience": 6,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 19,
+        "fields": {
+            "username": "jack_hernandez",
+            "first_name": "Jack",
+            "last_name": "Hernandez",
+            "years_of_experience": 11,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "accounts.cook",
+        "pk": 20,
+        "fields": {
+            "username": "scarlett_king",
+            "first_name": "Scarlett",
+            "last_name": "King",
+            "years_of_experience": 5,
+            "password": "pbkdf2_sha256$260000$example_password"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 1,
+        "fields": {
+            "name": "Appetizers"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 2,
+        "fields": {
+            "name": "Main Courses"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 3,
+        "fields": {
+            "name": "Desserts"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 4,
+        "fields": {
+            "name": "Salads"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 5,
+        "fields": {
+            "name": "Soups"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 6,
+        "fields": {
+            "name": "Beverages"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 7,
+        "fields": {
+            "name": "Sandwiches"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 8,
+        "fields": {
+            "name": "Seafood"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 9,
+        "fields": {
+            "name": "Pasta"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 10,
+        "fields": {
+            "name": "Pizza"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 11,
+        "fields": {
+            "name": "Grilled"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 12,
+        "fields": {
+            "name": "Breakfast"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 13,
+        "fields": {
+            "name": "Brunch"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 14,
+        "fields": {
+            "name": "Fast Food"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 15,
+        "fields": {
+            "name": "Bakery"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 16,
+        "fields": {
+            "name": "Vegetarian"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 17,
+        "fields": {
+            "name": "Vegan"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 18,
+        "fields": {
+            "name": "Side Dishes"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 19,
+        "fields": {
+            "name": "Smoothies"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 20,
+        "fields": {
+            "name": "Snacks"
+        }
+    },
+    {
+        "model": "kitchen.dishtype",
+        "pk": 21,
+        "fields": {
+            "name": "Dessert Drinks"
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 1,
+        "fields": {
+            "name": "Margherita Pizza",
+            "description": "Classic Italian pizza with fresh tomatoes, mozzarella, and basil.",
+            "price": "9.99",
+            "dish_type": 10,
+            "cooks": [1, 2, 3]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 2,
+        "fields": {
+            "name": "Caesar Salad",
+            "description": "Crispy romaine lettuce with Caesar dressing, croutons, and parmesan.",
+            "price": "7.50",
+            "dish_type": 4,
+            "cooks": [4, 5, 6]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 3,
+        "fields": {
+            "name": "Grilled Salmon",
+            "description": "Salmon fillet grilled to perfection with lemon and herbs.",
+            "price": "14.50",
+            "dish_type": 8,
+            "cooks": [7, 8, 9]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 4,
+        "fields": {
+            "name": "Pasta Carbonara",
+            "description": "Traditional Italian pasta with creamy sauce, pancetta, and parmesan.",
+            "price": "10.00",
+            "dish_type": 9,
+            "cooks": [10, 11, 12]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 5,
+        "fields": {
+            "name": "Vegan Burger",
+            "description": "A delicious plant-based burger with fresh lettuce, tomatoes, and vegan cheese.",
+            "price": "8.99",
+            "dish_type": 17,
+            "cooks": [13, 14, 15]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 6,
+        "fields": {
+            "name": "French Fries",
+            "description": "Crispy golden fries served with ketchup.",
+            "price": "3.50",
+            "dish_type": 18,
+            "cooks": [16, 17, 18]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 7,
+        "fields": {
+            "name": "Breakfast Burrito",
+            "description": "Flour tortilla stuffed with eggs, cheese, and potatoes.",
+            "price": "6.25",
+            "dish_type": 12,
+            "cooks": [19, 20, 1]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 8,
+        "fields": {
+            "name": "Apple Pie",
+            "description": "Traditional apple pie with flaky crust and cinnamon apples.",
+            "price": "4.50",
+            "dish_type": 3,
+            "cooks": [2, 3, 4]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 9,
+        "fields": {
+            "name": "Berry Smoothie",
+            "description": "Mixed berry smoothie with yogurt and honey.",
+            "price": "5.99",
+            "dish_type": 19,
+            "cooks": [5, 6, 7]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 10,
+        "fields": {
+            "name": "Chocolate Cake",
+            "description": "Rich and moist chocolate cake with dark chocolate ganache.",
+            "price": "6.00",
+            "dish_type": 3,
+            "cooks": [8, 9, 10]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 11,
+        "fields": {
+            "name": "Grilled Cheese Sandwich",
+            "description": "Toasted sandwich with melted cheese.",
+            "price": "4.25",
+            "dish_type": 7,
+            "cooks": [11, 12, 13]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 12,
+        "fields": {
+            "name": "Vegetable Soup",
+            "description": "Hearty vegetable soup with seasonal ingredients.",
+            "price": "5.00",
+            "dish_type": 5,
+            "cooks": [14, 15, 16]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 13,
+        "fields": {
+            "name": "Eggs Benedict",
+            "description": "English muffin with poached eggs, Canadian bacon, and hollandaise sauce.",
+            "price": "9.50",
+            "dish_type": 12,
+            "cooks": [17, 18, 19]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 14,
+        "fields": {
+            "name": "Greek Salad",
+            "description": "Salad with feta cheese, olives, cucumbers, and tomatoes.",
+            "price": "6.75",
+            "dish_type": 4,
+            "cooks": [20, 1, 2]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 15,
+        "fields": {
+            "name": "Espresso",
+            "description": "Rich and dark coffee served in a small cup.",
+            "price": "3.00",
+            "dish_type": 6,
+            "cooks": [3, 4, 5]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 16,
+        "fields": {
+            "name": "Lemon Tart",
+            "description": "Zesty lemon tart with a buttery crust.",
+            "price": "5.75",
+            "dish_type": 3,
+            "cooks": [6, 7, 8]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 17,
+        "fields": {
+            "name": "Fettuccine Alfredo",
+            "description": "Pasta in creamy alfredo sauce with parmesan cheese.",
+            "price": "11.50",
+            "dish_type": 9,
+            "cooks": [9, 10, 11]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 18,
+        "fields": {
+            "name": "Cheeseburger",
+            "description": "Juicy beef patty with cheese, lettuce, and tomato in a toasted bun.",
+            "price": "7.99",
+            "dish_type": 14,
+            "cooks": [12, 13, 14]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 19,
+        "fields": {
+            "name": "Fruit Platter",
+            "description": "Assorted fresh seasonal fruits.",
+            "price": "5.25",
+            "dish_type": 20,
+            "cooks": [15, 16, 17]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 20,
+        "fields": {
+            "name": "Spaghetti Bolognese",
+            "description": "Spaghetti with hearty meat sauce.",
+            "price": "10.25",
+            "dish_type": 2,
+            "cooks": [18, 19, 20]
+        }
+    },
+    {
+        "model": "kitchen.dish",
+        "pk": 21,
+        "fields": {
+            "name": "Pancakes",
+            "description": "Fluffy pancakes served with maple syrup and berries.",
+            "price": "7.00",
+            "dish_type": 13,
+            "cooks": [1, 2, 3]
+        }
+    }
+]
